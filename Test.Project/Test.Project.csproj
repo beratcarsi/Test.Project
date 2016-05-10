@@ -54,6 +54,8 @@
     <Compile Include="Tests\DelegateTest.cs" />
     <Compile Include="Tests\GenericDelegateTest.cs" />
     <Compile Include="Tests\IndexerMethodTest.cs" />
+    <Compile Include="Tests\ObservableCollectionTest.cs" />
+    <Compile Include="Tests\QueueListTest.cs" />
     <Compile Include="Tests\StackListTest.cs" />
   </ItemGroup>
   <ItemGroup>
