@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace Test.Project.Tests
 {
     [TestFixture]
-    public class DelegateTests
+    public class DelegateTest
     {
         [Test]
         public void traditional_delegate_test()
