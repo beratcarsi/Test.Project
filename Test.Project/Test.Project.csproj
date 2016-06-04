@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="TestModels\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\DatetimeTest.cs" />
     <Compile Include="Tests\EventHandlerTest.cs" />
     <Compile Include="Tests\DelegateTest.cs" />
     <Compile Include="Tests\GenericDelegateTest.cs" />
