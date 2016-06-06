@@ -53,6 +53,7 @@
     <Compile Include="Tests\DatetimeTest.cs" />
     <Compile Include="Tests\EventHandlerTest.cs" />
     <Compile Include="Tests\DelegateTest.cs" />
+    <Compile Include="Tests\ExpressionTreeTest.cs" />
     <Compile Include="Tests\GenericDelegateTest.cs" />
     <Compile Include="Tests\IndexerMethodTest.cs" />
     <Compile Include="Tests\ObservableCollectionTest.cs" />
