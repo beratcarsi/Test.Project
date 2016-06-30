@@ -65,6 +65,7 @@
     <Compile Include="Tests\QueueListTest.cs" />
     <Compile Include="Tests\StackListTest.cs" />
     <Compile Include="Core\StaticReflection.cs" />
+    <Compile Include="Tests\StaticTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
