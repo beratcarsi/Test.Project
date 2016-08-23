@@ -30,19 +30,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework, Version=3.2.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.3.2.0\lib\net45\nunit.framework.dll</HintPath>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Shouldly, Version=2.7.0.0, Culture=neutral, PublicKeyToken=6042cbcb05cbc941, processorArchitecture=MSIL">
-      <HintPath>..\packages\Shouldly.2.7.0\lib\net40\Shouldly.dll</HintPath>
+    <Reference Include="nunit.framework, Version=3.4.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.4.1\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Schematron, Version=0.6.0.18, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Schematron.0.6.18\lib\net40\Schematron.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Shouldly, Version=2.8.0.0, Culture=neutral, PublicKeyToken=6042cbcb05cbc941, processorArchitecture=MSIL">
+      <HintPath>..\packages\Shouldly.2.8.0\lib\net40\Shouldly.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,6 +61,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="eFatura\EFatura.cs" />
+    <Compile Include="eFatura\EfaturaTests.cs" />
     <Compile Include="Extensions\ListExtensionTest.cs" />
     <Compile Include="TestModels\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,10 +77,82 @@
     <Compile Include="Tests\QueueListTest.cs" />
     <Compile Include="Tests\StackListTest.cs" />
     <Compile Include="Core\StaticReflection.cs" />
+    <Compile Include="Tests\ReflectionTest.cs" />
     <Compile Include="Tests\StaticTest.cs" />
+    <Compile Include="Tests\XmlTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="eFatura\Files\wsdl\EFatura_Canlı.wsdl" />
+    <None Include="eFatura\Files\wsdl\EFatura_Test.wsdl" />
+    <None Include="eFatura\Files\xsd\Envelope\BasicTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="eFatura\Files\xsd\Envelope\BusinessScope.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="eFatura\Files\xsd\Envelope\DocumentIdentification.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="eFatura\Files\xsd\Envelope\Manifest.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="eFatura\Files\xsd\Envelope\Package.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="eFatura\Files\xsd\Envelope\PackageProxy.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="eFatura\Files\xsd\Envelope\PackageProxy_1_2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="eFatura\Files\xsd\Envelope\Package_1_2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="eFatura\Files\xsd\Envelope\Partner.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="eFatura\Files\xsd\Envelope\StandardBusinessDocumentHeader.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="eFatura\Files\xsd\HRXML\UserAccount.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="eFatura\Files\xsd\HRXML\www.openapplications.org_oagis_9\Components.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="eFatura\Files\xsd\HRXML\www.openapplications.org_oagis_9_codelists\CodeLists.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="eFatura\Files\xsd\HRXML\www.openapplications.org_oagis_9_qualifieddatatypes_1.1\QualifiedDataTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="eFatura\Files\xsd\HRXML\www.openapplications.org_oagis_9_unqualifieddatatypes_1.1\UnqualifiedDataTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="eFatura\Files\schematron\UBL-TR_Codelist.xml" />
+    <Content Include="eFatura\Files\schematron\UBL-TR_Common_Schematron.xml" />
+    <Content Include="eFatura\Files\schematron\UBL-TR_Main_Schematron.xml" />
+    <Content Include="eFatura\Files\xml\0_ACIKLAMALAR.txt" />
+    <Content Include="eFatura\Files\xml\1_SISTEM_YANITI_MERKEZ.xml" />
+    <Content Include="eFatura\Files\xml\1_SISTEM_YANITI_POSTA_KUTUSU.xml" />
+    <Content Include="eFatura\Files\xml\1_TEMEL_FATURA.xml" />
+    <Content Include="eFatura\Files\xml\1_TEMEL_FATURA_ZARF.xml" />
+    <Content Include="eFatura\Files\xml\2_TICARI_FATURA.xml" />
+    <Content Include="eFatura\Files\xml\2_TICARI_FATURA_ZARF.xml" />
+    <Content Include="eFatura\Files\xml\2_UYGULAMA_YANITI_KABUL.xml" />
+    <Content Include="eFatura\Files\xml\2_UYGULAMA_YANITI_KABUL_ZARF.xml" />
+    <Content Include="eFatura\Files\xml\3_TICARI_FATURA.xml" />
+    <Content Include="eFatura\Files\xml\3_TICARI_FATURA_ZARF.xml" />
+    <Content Include="eFatura\Files\xml\3_UYGULAMA_YANITI_RED.xml" />
+    <Content Include="eFatura\Files\xml\3_UYGULAMA_YANITI_RED_ZARF.xml" />
+    <Content Include="eFatura\Files\xml\4_KULLANICI_ACMA.xml" />
+    <Content Include="eFatura\Files\xml\4_KULLANICI_ACMA_ZARF.xml" />
+    <Content Include="eFatura\Files\xml\5_KULLANICI_SILME.xml" />
+    <Content Include="eFatura\Files\xml\5_KULLANICI_SILME_ZARF.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
