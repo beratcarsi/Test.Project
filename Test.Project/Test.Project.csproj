@@ -70,11 +70,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\TableClass.cs" />
     <Compile Include="eFatura\EFatura.cs" />
     <Compile Include="eFatura\EfaturaTests.cs" />
     <Compile Include="Extensions\ListExtensionTest.cs" />
+    <Compile Include="TestModels\FakeDataClass.cs" />
     <Compile Include="TestModels\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\ClassToTableCreatorTest.cs" />
     <Compile Include="Tests\DatabaseTest.cs" />
     <Compile Include="Tests\DatetimeTest.cs" />
     <Compile Include="Extensions\EnumExtensionTest.cs" />
