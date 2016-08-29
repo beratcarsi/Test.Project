@@ -14,8 +14,7 @@ namespace Test.Project.Core
         {
             get
             {
-                // Add the rest of your CLR Types to SQL Types mapping here
-                Dictionary<Type, string> dataMapper = new Dictionary<Type, string>();
+                var dataMapper = new Dictionary<Type, string>();
                 dataMapper.Add(typeof(long), "BIGINT");
                 dataMapper.Add(typeof(int), "INT");
                 dataMapper.Add(typeof(string), "NVARCHAR(MAX)");
@@ -48,8 +47,7 @@ namespace Test.Project.Core
 
             foreach (PropertyInfo p in t.GetProperties())
             {
-                KeyValuePair<string, Type> field = new KeyValuePair<string, Type>(p.Name, p.PropertyType);
-
+                var field = new KeyValuePair<string, Type>(p.Name, p.PropertyType);
                 this.Fields.Add(field);
             }
         }
@@ -72,13 +70,12 @@ namespace Test.Project.Core
                 else
                 {
                     // Complex Type? 
-                    script.Append("\t " + field.Key + " INT");
+                    script.Append("\t " + field.Key + " " + field.Value.Name);
+                    //script.Append("\t " + field.Key + " INT");
                 }
 
                 if (i != this.Fields.Count - 1)
-                {
                     script.Append(",");
-                }
 
                 script.Append(Environment.NewLine);
             }

@@ -17,12 +17,12 @@ namespace Test.Project.Tests
         {
             List<TableClass> tables = new List<TableClass>();
 
-            Assembly a = Assembly.LoadFile(@"D:\Repository\TFS\ELPO\EFatura\EFatura\EFatura.Core\bin\Debug\EFatura.Core.dll");
-            //Assembly a = Assembly.GetAssembly(typeof(FakeTableClass));
+            //Assembly a = Assembly.LoadFile(@"E:\Repository\EFatura\EFaturaService\EFaturaService.Core\bin\Debug\EFaturaService.Core.dll");
+            Assembly a = Assembly.GetAssembly(typeof(FakeTableClass));
 
-            //Type[] types = a.GetTypes().Where(x => x.Namespace == "Test.Project.TestModels").ToArray();
+            Type[] types = a.GetTypes().Where(x => x.Namespace == "EFatura.Core.UBLTypes.UBLv21").ToArray();
             //Type[] types = new Type[] { new FakeDataClass().GetType() };
-            Type[] types = a.GetTypes();
+            //Type[] types = a.GetTypes();
 
             // Get Types in the assembly.
             foreach (Type t in types)

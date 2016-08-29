@@ -19,7 +19,7 @@ namespace Test.Project.eFatura
         public void gib_service_test()
         {
             var xmlPath = _baseDirectory + "/eFatura/Files/xml/1_TEMEL_FATURA.xml";
-            var gibService = new EFatura();
+            var gibService = new EFaturaService();
 
             var memStreamIn = new MemoryStream(File.ReadAllBytes(xmlPath));
             var zipFileName = "F47AC10B-58CC-4372-A567-0E02B2C3D479";

@@ -25,14 +25,14 @@ using System.Xml.Serialization;
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Web.Services.WebServiceBindingAttribute(Name="EFaturaSoapBinding", Namespace="http://gib.gov.tr/vedop3/eFatura")]
-public partial class EFatura : System.Web.Services.Protocols.SoapHttpClientProtocol {
+public partial class EFaturaService : System.Web.Services.Protocols.SoapHttpClientProtocol {
     
     private System.Threading.SendOrPostCallback sendDocumentOperationCompleted;
     
     private System.Threading.SendOrPostCallback getApplicationResponseOperationCompleted;
     
     /// <remarks/>
-    public EFatura() {
+    public EFaturaService() {
         this.SoapVersion = System.Web.Services.Protocols.SoapProtocolVersion.Soap12;
         this.Url = "http://merkeztest.efatura.gov.tr/EFaturaMerkez/services/EFatura";
     }
