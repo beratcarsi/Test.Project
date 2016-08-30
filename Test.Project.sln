@@ -15,6 +15,8 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Roslyn.Syntax.Tree.API", "R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.EntityFramework", "Test.EntityFramework\Test.EntityFramework.csproj", "{2055A669-72F2-4C58-B14D-3302DF8AFA33}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UBLTypes", "UBLTypes\UBLTypes.csproj", "{69F563EB-33B0-4A45-B921-E2E3479B651E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{2055A669-72F2-4C58-B14D-3302DF8AFA33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2055A669-72F2-4C58-B14D-3302DF8AFA33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2055A669-72F2-4C58-B14D-3302DF8AFA33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69F563EB-33B0-4A45-B921-E2E3479B651E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69F563EB-33B0-4A45-B921-E2E3479B651E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69F563EB-33B0-4A45-B921-E2E3479B651E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69F563EB-33B0-4A45-B921-E2E3479B651E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

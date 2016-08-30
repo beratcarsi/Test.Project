@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
+using EFatura.Core.UBLTypes.UBLv21;
 using NUnit.Framework;
 using Test.Project.Core;
 using Test.Project.TestModels;
@@ -15,14 +17,15 @@ namespace Test.Project.Tests
         [Test]
         public void class_to_sql_table_creator_test()
         {
-            List<TableClass> tables = new List<TableClass>();
+            var tables = new List<TableClass>();
+            var sb = new StringBuilder();
 
             //Assembly a = Assembly.LoadFile(@"E:\Repository\EFatura\EFaturaService\EFaturaService.Core\bin\Debug\EFaturaService.Core.dll");
-            Assembly a = Assembly.GetAssembly(typeof(FakeTableClass));
+            Assembly a = Assembly.GetAssembly(typeof(InvoiceType));
 
-            Type[] types = a.GetTypes().Where(x => x.Namespace == "EFatura.Core.UBLTypes.UBLv21").ToArray();
+            //Type[] types = a.GetTypes().Where(x => x.Namespace == "EFatura.Core.UBLTypes.UBLv21").ToArray();
             //Type[] types = new Type[] { new FakeDataClass().GetType() };
-            //Type[] types = a.GetTypes();
+            Type[] types = a.GetTypes();
 
             // Get Types in the assembly.
             foreach (Type t in types)
@@ -34,11 +37,16 @@ namespace Test.Project.Tests
             // Create SQL for each table
             foreach (TableClass table in tables)
             {
-                Console.WriteLine(table.CreateTableScript());
+                var tableScript = table.CreateTableScript();
+                sb.AppendLine(tableScript);
+
+                Console.WriteLine(tableScript);
                 Console.WriteLine();
             }
 
-            // Total Hacked way to find FK relationships! Too lazy to fix right now
+            File.WriteAllText(@"e:\sqltable.sql", sb.ToString());
+
+            // FK relationships 
             foreach (TableClass table in tables)
             {
                 foreach (KeyValuePair<string, Type> field in table.Fields)
@@ -52,7 +60,6 @@ namespace Test.Project.Tests
                             Console.WriteLine("ALTER TABLE " + table.ClassName + " WITH NOCHECK");
                             Console.WriteLine("ADD CONSTRAINT FK_" + field.Key + " FOREIGN KEY (" + field.Key + ") REFERENCES " + t2.ClassName + "(ID)");
                             Console.WriteLine("GO");
-
                         }
                     }
                 }

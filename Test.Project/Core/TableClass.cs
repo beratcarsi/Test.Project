@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EFatura.Core.UBLTypes.UBLv21.Udt;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
@@ -24,6 +25,24 @@ namespace Test.Project.Core
                 dataMapper.Add(typeof(float), "FLOAT");
                 dataMapper.Add(typeof(decimal), "DECIMAL(18,2)");
                 dataMapper.Add(typeof(Guid), "UNIQUEIDENTIFIER");
+
+                // for UBL types
+                dataMapper.Add(typeof(AmountType), "DECIMAL(18,2)");
+                //dataMapper.Add(typeof(BinaryObjectType), "NVARCHAR(MAX)"); // cctscctBinaryObjectType object
+                dataMapper.Add(typeof(CodeType), "NVARCHAR(MAX)");
+                dataMapper.Add(typeof(GraphicType), "NVARCHAR(MAX)");
+                dataMapper.Add(typeof(DateType), "DATETIME");
+                dataMapper.Add(typeof(TimeType), "DATETIME");
+                dataMapper.Add(typeof(IdentifierType), "UNIQUEIDENTIFIER");
+                dataMapper.Add(typeof(IndicatorType), "NVARCHAR(MAX)");
+                dataMapper.Add(typeof(MeasureType), "NVARCHAR(MAX)");
+                dataMapper.Add(typeof(NameType), "NVARCHAR(MAX)");
+                dataMapper.Add(typeof(NumericType), "DECIMAL(18,2)");
+                dataMapper.Add(typeof(PercentType), "DECIMAL(18,2)");
+                dataMapper.Add(typeof(QuantityType), "DECIMAL(18,2)");
+                dataMapper.Add(typeof(RateType), "DECIMAL(18,2)");
+                dataMapper.Add(typeof(EFatura.Core.UBLTypes.UBLv21.Udt.ValueType), "DECIMAL(18,2)");
+                dataMapper.Add(typeof(TextType), "NVARCHAR(MAX)");
 
                 return dataMapper;
             }
@@ -81,6 +100,7 @@ namespace Test.Project.Core
             }
 
             script.AppendLine(")");
+
 
             return script.ToString();
         }

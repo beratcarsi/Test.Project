@@ -77,25 +77,6 @@
     <Compile Include="TestModels\FakeDataClass.cs" />
     <Compile Include="TestModels\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestModels\UBLTypes\NonGenerated\common\UBL-UnqualifiedDataTypes-2.1.partial.cs" />
-    <Compile Include="TestModels\UBLTypes\NonGenerated\maindoc\UBL-BaseDocument-2.1.partial.cs" />
-    <Compile Include="TestModels\UBLTypes\UBLv21\common\CCTS_CCT_SchemaModule-2.1.cs" />
-    <Compile Include="TestModels\UBLTypes\UBLv21\common\UBL-CommonAggregateComponents-2.1.cs" />
-    <Compile Include="TestModels\UBLTypes\UBLv21\common\UBL-CommonBasicComponents-2.1.cs" />
-    <Compile Include="TestModels\UBLTypes\UBLv21\common\UBL-CommonExtensionComponents-2.1.cs" />
-    <Compile Include="TestModels\UBLTypes\UBLv21\common\UBL-CommonSignatureComponents-2.1.cs" />
-    <Compile Include="TestModels\UBLTypes\UBLv21\common\UBL-QualifiedDataTypes-2.1.cs" />
-    <Compile Include="TestModels\UBLTypes\UBLv21\common\UBL-SignatureAggregateComponents-2.1.cs" />
-    <Compile Include="TestModels\UBLTypes\UBLv21\common\UBL-SignatureBasicComponents-2.1.cs" />
-    <Compile Include="TestModels\UBLTypes\UBLv21\common\UBL-UnqualifiedDataTypes-2.1.cs" />
-    <Compile Include="TestModels\UBLTypes\UBLv21\common\UBL-XAdESv132-2.1.cs" />
-    <Compile Include="TestModels\UBLTypes\UBLv21\common\UBL-XAdESv141-2.1.cs" />
-    <Compile Include="TestModels\UBLTypes\UBLv21\common\UBL-xmldsig-core-schema-2.1.cs" />
-    <Compile Include="TestModels\UBLTypes\UBLv21\envelope\Package_1_2.cs" />
-    <Compile Include="TestModels\UBLTypes\UBLv21\envelope\StandardBusinessDocumentHeader.cs" />
-    <Compile Include="TestModels\UBLTypes\UBLv21\maindoc\UBL-ApplicationResponse-2.1.cs" />
-    <Compile Include="TestModels\UBLTypes\UBLv21\maindoc\UBL-BaseDocument-2.1.cs" />
-    <Compile Include="TestModels\UBLTypes\UBLv21\maindoc\UBL-Invoice-2.1.cs" />
     <Compile Include="Tests\ClassToTableCreatorTest.cs" />
     <Compile Include="Tests\DatabaseTest.cs" />
     <Compile Include="Tests\DatetimeTest.cs" />
@@ -169,6 +150,10 @@
       <Project>{2055A669-72F2-4C58-B14D-3302DF8AFA33}</Project>
       <Name>Test.EntityFramework</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UBLTypes\UBLTypes.csproj">
+      <Project>{69f563eb-33b0-4a45-b921-e2e3479b651e}</Project>
+      <Name>UBLTypes</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="eFatura\Files\schematron\UBL-TR_Codelist.xml" />
@@ -192,9 +177,7 @@
     <Content Include="eFatura\Files\xml\5_KULLANICI_SILME.xml" />
     <Content Include="eFatura\Files\xml\5_KULLANICI_SILME_ZARF.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TestModels\UBLTypes\UBLv21\hrxml\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
